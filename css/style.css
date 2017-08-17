@@ -1,0 +1,470 @@
+/* CSS Document */
+
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+html {
+  background-color: #eeeff1;
+  overflow-x: hidden;
+}
+body {
+	margin: 0 auto;
+	width:100%;
+	height: 100%;
+	max-width: 640px;
+	min-width: 320px;
+	font-family:"microsoft yahei","微软雅黑";/*"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+	font-size: 14px;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	margin: 0;
+	padding: 0;
+}
+ol,ul,li,dl,dt,dd {
+	list-style: none;
+	margin: 0; padding: 0;
+}
+a {
+	color: #eeeff1;
+	text-decoration: none;	
+	vertical-align: middle;
+}
+a:hover {
+	color: #c0c0c0;
+	text-decoration: none;
+	
+}
+input { border: none;}
+
+.fl{float: left;}
+.fr { float: right;}
+.clear{clear: both;}
+
+.wrap { 
+	width: 100%;
+	margin:0 auto;
+}
+
+
+/*主页*/
+.back{
+	position: absolute;
+    z-index: -1;
+}
+
+.back_butt{
+	position: absolute;
+    top: 70%;
+    left: 20%;
+    margin: auto;
+  
+}
+
+
+/*填写资料*/
+
+.data{
+	position: absolute;
+    z-index: -1;
+    text-align:center;
+}
+
+.data_s{
+	position: absolute;
+	top: 5%; 	
+}
+.data_h1 {
+	position: absolute;
+	top:40%;
+    left: 32%;
+    margin: auto;
+}
+.data_h1 h3 {
+	color: #01a4ef;
+}
+
+.data_inputs {
+	
+	position: absolute;
+	width: 100%;
+	top:45%;
+    left: 10%;
+}
+.form-control {
+	width: 80%;
+	margin-top: 20px;
+}
+.data_buttom {
+	margin: auto;
+	width: 80%;
+	margin-top: 20px;
+	border-radius: 20px;
+	color: #01a4ef;
+	background-color: #FFFFFF;
+	border: none;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #028ccb;
+    border: none;
+}
+
+
+/*答题*/
+.dati_ti{
+	background-color: #eeeff1;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	
+}
+.dati_ti p {	
+ 	margin-left: 10px;	
+ 	margin-right: 10px;
+}
+
+
+.dati_biao{
+	background-color: #FFFFFF;
+	height: 100%;
+	width: 100%;	
+}
+
+.dati_biao p.dati_biapp {
+	width: 100%;	
+	margin-left: 10px;	
+ 	margin-right: 10px;
+}
+
+.kt {
+	background-color: #eeeff1;
+	height: 10px;
+	width: 100%;
+}
+
+
+
+.dati_xuanz {
+	background-color: #FFFFFF;
+	width: 100%;
+	height: 44px;
+	line-height: 44px;
+	padding-left: 10px;
+	border-bottom: 1px #eeeff1 solid;
+}
+
+.dati_xuanz span {
+	font-size: 16px;
+	color: #21292c;
+	font-weight: 100;
+	padding-left: 10px;
+}
+.bianhuaz {
+	width: 15px;
+	height:15px;
+	border-bottom: 1px #21292c solid;
+	color: #FFFFFF;
+}
+
+.bianhuaz1 {
+	width: 15px;
+	height:15px;
+	border-bottom: 1px #01a4ef solid;
+	color: #01a4ef;
+}
+
+.dati_xuanz span.bia1nh {
+	font-size: 16px;
+	color: #01a4ef;
+	font-weight: 100;
+	padding-left: 10px;
+}
+
+.kt1 {
+	background-color: #eeeff1;
+	height: 100px;
+	width: 100%;
+}
+
+.dati_buttomsg {
+	text-align: center;
+	background-color: #eeeff1;
+}
+
+.data_buttom11 {
+	margin: auto;
+	width:60%;
+	height: 50px;
+	margin-top: 20px;
+	border-radius: 20px;
+	color: #FFFFFF;
+	background-color: #01a4ef;
+	border: none;
+}
+
+.data_buttom11:hover {
+    color: #333;
+    background-color: #FFFFFF;
+    border-color: #adadad;
+}
+
+
+
+/*结果*/
+
+
+.result p {
+	font-size: 20px;
+	color: #FFFFFF;
+	position: absolute;
+	top:33%;
+    left: 32%;
+    margin: auto;   
+}
+
+.result_p {
+	width: 100%;
+	margin: 10px 3%;
+}
+
+.result_p p {
+	line-height:26px;
+	margin-top: 10px;
+	width: 96%;
+	padding-bottom: 16px;
+}
+
+
+.dati_buttomsg1 {
+	text-align: center;
+	background-color: #FFFFFF;
+}
+
+.data_buttomcc {
+	margin: auto;
+	width:60%;
+	height: 50px;
+	margin-top: 20px;
+	border-radius: 20px;
+	color: #FFFFFF;
+	background-color: #01a4ef;
+	border: none;
+	margin-bottom:10%;
+}
+
+.data_buttomcc:hover {
+    color: #333;
+    background-color: #FFFFFF;
+    border-color: #adadad;
+}
+
+
+/*上传报告*/
+
+.readeport {
+	position: absolute;
+	top: 10%;
+}
+.readeport_h3 {
+	margin-left:10%;
+	margin-top: 20px;
+	width: 80%;
+}
+.readeport_h3 h3 {
+	color: #FFFFFF;
+	line-height: 36px;
+}
+.readeport_anndghfg {
+	margin-top: 20%;
+}
+
+
+.readeport_xuanzui {
+	margin-top: 8%;
+}
+
+.readeport_xuanzui p {
+	color: #FFFFFF;
+	font-size: 18px;
+	font-weight:900;
+}
+
+
+/*添加报告*/
+.upload {
+	background-color: #FFFFFF;
+	width: 94%;
+	margin: auto;
+	padding: 10px 0px;
+}
+.upload p {
+	color: #01a4ef;
+	font-size: 16px;
+	
+}
+
+
+.upload ul li {
+	float:left ;
+	width: 120px;
+	height: 120px;
+	margin-left: 5px;
+	margin-top: 10px;
+}
+.upload ul li .uploadimg {
+	width: 100%;
+	height: 100%;
+	
+}
+ .uploadimg img {
+	width: 100%;
+	height: 100%;
+	
+}
+
+.buttom_ckdzfa {
+	width: 100%;
+	 
+    background-color: #FFFFFF;
+}
+
+
+/*完成*/
+.data_buttomdzfa{    
+	margin: auto;
+    width: 40%;
+    height: 50px;
+    margin-top: 20px;
+    border-radius: 20px;
+    color: #FFFFFF;
+    background-color: #01a4ef;
+    border: none;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.buttom_ckdzfa p {
+	width: 90%;
+	text-align: center;
+	color: #f2133d;
+}
+
+
+@media screen and ( max-width:400px) {
+	
+.data_h1 {
+	position: absolute;
+	top:40%;
+    left: 29%;
+    margin: auto;
+}
+.data_h1 h3 {
+	color: #01a4ef;
+	font-size: 20px;
+}
+
+.data_inputs {
+	position: absolute;
+	width: 100%;
+	top:46%;
+    left: 10%;
+}
+.form-control {
+	width: 80%;
+	margin-top: 10px;
+}
+
+
+/*上传报告*/
+.readeport {
+	position: absolute;
+	top: 10%;
+}
+.readeport_h3 {
+	margin-left:10%;
+	margin-top: 20px;
+	width: 80%;
+}
+.readeport_h3 h3 {
+	color: #FFFFFF;
+	line-height: 25px;
+	font-size: 18px;
+	font-weight:900;
+}
+.readeport_anndghfg {
+	margin-top: 10%;
+}
+
+
+.readeport_xuanzui {
+	margin-top: 6%;
+}
+
+.readeport_xuanzui p {
+	color: #FFFFFF;
+	font-size: 18px;
+	font-weight:900;
+}
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
