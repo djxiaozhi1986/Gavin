@@ -29,16 +29,16 @@
 						<h3>填写个人信息</h3>
 					</div>
 					<div class="data_inputs">
-						<input type="text" class="form-control" placeholder="请输入姓名">
-						<select class="form-control" required>
-							<option>请输选择性别</option>
-							<option>男</option>
-							<option>女</option>
+						<input id="name" type="text" class="form-control" placeholder="请输入姓名">
+						<select class="form-control" id="sex">
+							<option value="-1" selected>请输选择性别</option>
+							<option value="1">男</option>
+							<option value="0">女</option>
 
 						</select>
-						<input type="text" class="form-control" placeholder="请输入手机号码">
-						<input type="text" class="form-control" placeholder="请输入测试数字密码">
-						<input type="date" style="width: 100%" class="form-control" placeholder="请出生日期">
+						<input id="phone" type="text" class="form-control" placeholder="请输入手机号码">
+						<input id="password" type="text" class="form-control" placeholder="请输入测试数字密码">
+						<input id="birthday" type="date" class="form-control" placeholder="请出生日期">
 					</div>
 					<button type="button" class="data_buttom bansf btn btn-primary btn-lg btn-block" id="start_btn" >开始答题</button>
 
@@ -58,7 +58,7 @@
                 },
                 "showDuration": "300",
                 "hideDuration": "1000",
-                "timeOut": "200000",
+                "timeOut": "2000",
                 "extendedTimeOut": "1000",
                 "showEasing": "swing",
                 "hideEasing": "linear",
@@ -67,9 +67,68 @@
             }
 			$(function () {
 				$("#start_btn").on('click',function () {
-                    toastr.error('ok');
+				    //开始验证
+					var name = $("#name").val();
+					if(name==undefined || name ==''){
+                        toastr.error('请输入姓名');
+                        return;
+					}
+					if(name.length>4){
+                        toastr.error('姓名不可超过4个字符');
+                        return;
+					}
+					var sex = $("#sex").val();
+					if(sex==-1){
+                        toastr.error('请选择性别');
+                        return;
+					}
+                    var phone = $("#phone").val();
+                    if(!checkMobile(phone)){
+                        toastr.error('请输入正确的手机号码');
+                        return;
+                    }
+                    var pass = $("#password").val();
+                    if(pass==undefined || pass ==''){
+                        toastr.error('请输入密码');
+                        return;
+                    }
+                    if(pass.length>16){
+                        toastr.error('密码不可超过16个字符');
+                        return;
+                    }
+                    var birthday = $("#birthday").val();
+                    if(birthday==undefined || birthday ==''){
+                        toastr.error('请选择出生日期');
+                        return;
+                    }
+                    var params = {
+                        type:'add_user',
+                        name:name,
+						sex:sex,
+						phone:phone,
+						pass:pass,
+						birthday:birthday
+					}
+                    //提交到数据库
+                    $.ajax({
+                        type : "POST",  //提交方式
+                        url : "ajax.php",//路径
+                        data : params,//数据，这里使用的是Json格式进行传输
+                        success : function(result) {//返回数据根据结果进行相应的处理
+//                                toastr.success('开始答题了');
+								location.href='dati.html?user_id='+result;
+
+                        }
+                    });
                 })
             })
+            function checkMobile(phone){
+                var reg = /^1[3|4|5|7|8][0-9]{9}$/;
+                if(!(reg.test(phone))){
+                    return false;
+                }
+                return true;
+            }
 		</script>
 	</body>
 </html>
