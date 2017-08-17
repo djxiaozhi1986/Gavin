@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="19dff41b-760f-4228-88ef-3b93f970b4be" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/wenjuan/complete.html" afterPath="$PROJECT_DIR$/complete.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/wenjuan/dati.html" afterPath="$PROJECT_DIR$/dati.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ajax.php" afterPath="$PROJECT_DIR$/ajax.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/connect.php" afterPath="$PROJECT_DIR$/connect.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data.html" afterPath="$PROJECT_DIR$/data.html" />
-    </list>
+    <list default="true" id="19dff41b-760f-4228-88ef-3b93f970b4be" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -276,12 +270,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1502975154446</updated>
-      <workItem from="1502975155734" duration="8610000" />
+      <workItem from="1502975155734" duration="9801000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8610000" />
+    <option name="totallyTimeSpent" value="9801000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="2572" height="1402" extended-state="0" />
