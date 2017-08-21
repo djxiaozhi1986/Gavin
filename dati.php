@@ -90,16 +90,18 @@ $i=0;
     </div>
     <script>
         function next(this_q_id,next_q_id,index) {
-            $("#q_"+this_q_id).hide();
-            $("#q_"+next_q_id).show();
             $("#current_q").html(""+index);
             var old_score = parseFloat($("#hd_score").val());
             var radio_name = 'answer_'+this_q_id;
-            var score = parseFloat($("."+radio_name+":checked").val());
-            $("#hd_score").val(old_score+score);
+            if($("."+radio_name+":checked").val()!='' && $("."+radio_name+":checked").val()!=undefined){
+                var score = parseFloat($("."+radio_name+":checked").val());
+                $("#hd_score").val(old_score+score);
+                $("#q_"+this_q_id).hide();
+                $("#q_"+next_q_id).show();
+            }
         }
         function complete(this_q_id) {
-            location.href='complete.php?user_id=<?php echo $user_id?>&score='+$("#hd_score").val();
+            location.href='result.php?user_id=<?php echo $user_id?>&score='+$("#hd_score").val();
         }
     </script>
 	</body>
