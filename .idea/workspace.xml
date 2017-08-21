@@ -40,7 +40,7 @@
         <entry file="file://$PROJECT_DIR$/dati.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="895">
-              <caret line="104" column="9" lean-forward="true" selection-start-line="104" selection-start-column="9" selection-end-line="104" selection-end-column="9" />
+              <caret line="104" column="9" lean-forward="false" selection-start-line="104" selection-start-column="9" selection-end-line="104" selection-end-column="9" />
               <folding>
                 <marker date="1503321798927" expanded="true" signature="43:84" ph="select * fro... questions" />
                 <marker date="1503321798927" expanded="true" signature="121:380" ph="select * fro... answers" />
@@ -63,8 +63,8 @@
       <file leaf-file-name="up_report.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/up_report.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="30" column="34" lean-forward="false" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+            <state relative-caret-position="621">
+              <caret line="50" column="30" lean-forward="true" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -311,12 +311,12 @@
       <option name="presentableId" value="Default" />
       <updated>1502975154446</updated>
       <workItem from="1502975155734" duration="9821000" />
-      <workItem from="1503320614467" duration="2675000" />
+      <workItem from="1503320614467" duration="2864000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12496000" />
+    <option name="totallyTimeSpent" value="12685000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="2572" height="1402" extended-state="0" />
@@ -495,7 +495,7 @@
     <entry file="file://$PROJECT_DIR$/dati.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="895">
-          <caret line="104" column="9" lean-forward="true" selection-start-line="104" selection-start-column="9" selection-end-line="104" selection-end-column="9" />
+          <caret line="104" column="9" lean-forward="false" selection-start-line="104" selection-start-column="9" selection-end-line="104" selection-end-column="9" />
           <folding>
             <marker date="1503321798927" expanded="true" signature="43:84" ph="select * fro... questions" />
             <marker date="1503321798927" expanded="true" signature="121:380" ph="select * fro... answers" />
@@ -514,8 +514,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/up_report.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="30" column="34" lean-forward="false" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+        <state relative-caret-position="621">
+          <caret line="50" column="30" lean-forward="true" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
           <folding />
         </state>
       </provider>

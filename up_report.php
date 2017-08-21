@@ -13,7 +13,23 @@
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" href="css/Font-Awesome-3.2.1/css/font-awesome.min.css"  />
 		<link rel="stylesheet" href="css/style.css" />
-		
+		<style>
+            .file {
+                position: relative;
+                display: inline-block;
+                overflow: hidden;
+                text-decoration: none;
+                text-indent: 0;
+                line-height: 20px;
+            }
+            .file input {
+                position: absolute;
+                font-size: 100px;
+                right: 0;
+                top: 0;
+                opacity: 0;
+            }
+        </style>
 	</head>
 	<body>
 		
@@ -28,7 +44,10 @@
 					<div class="readeport_anndghfg">
 						<div class="readeport_xuanzui">
 							<p>上传您以往的体检报告照片</p>
-							<input type="file" accept="image/*" multiple class="data_buttom bansf btn btn-primary btn-lg btn-block">提交体检报告</input
+                            <a href="javascript:;" class="data_buttom bansf btn btn-primary btn-lg btn-block">提交体检报告
+                                <input type="file" type="file" accept="image/*" multiple>
+                            </a>
+<!--							<input type="file" accept="image/*" multiple class="data_buttom bansf btn btn-primary btn-lg btn-block"></input-->
 						</div>
 						<div class="readeport_xuanzui">
 							<p>没有报告请选择下面选项</p>
