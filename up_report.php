@@ -44,10 +44,10 @@
 					<div class="readeport_anndghfg">
 						<div class="readeport_xuanzui">
 							<p>上传您以往的体检报告照片</p>
-                            <a href="javascript:;" class="data_buttom bansf btn btn-primary btn-lg btn-block file">提交体检报告
-                                <input type="file" type="file" accept="image/*" multiple>
-                            </a>
-<!--							<input type="file" accept="image/*" multiple class="data_buttom bansf btn btn-primary btn-lg btn-block"></input-->
+<!--                            <a href="javascript:;" class="data_buttom bansf btn btn-primary btn-lg btn-block file">提交体检报告-->
+<!--                                <input type="file" type="file" accept="image/*" multiple>-->
+<!--                            </a>-->
+							<a class="data_buttom bansf btn btn-primary btn-lg btn-block" href="">提交体检报告</a>
 						</div>
 						<div class="readeport_xuanzui">
 							<p>没有报告请选择下面选项</p>
