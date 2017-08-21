@@ -28,7 +28,7 @@
 					<div class="readeport_anndghfg">
 						<div class="readeport_xuanzui">
 							<p>上传您以往的体检报告照片</p>
-							<button  accept="image/*" type="file" class="data_buttom bansf btn btn-primary btn-lg btn-block">提交体检报告</button
+							<input type="file" accept="image/*" multiple class="data_buttom bansf btn btn-primary btn-lg btn-block">提交体检报告</input
 						</div>
 						<div class="readeport_xuanzui">
 							<p>没有报告请选择下面选项</p>
