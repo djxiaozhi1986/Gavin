@@ -1,3 +1,7 @@
+<?php
+$user_id = $_GET['user_id'];
+$score = $_GET['score'];
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -47,7 +51,7 @@
 <!--                            <a href="javascript:;" class="data_buttom bansf btn btn-primary btn-lg btn-block file">提交体检报告-->
 <!--                                <input type="file" type="file" accept="image/*" multiple>-->
 <!--                            </a>-->
-							<a class="data_buttom bansf btn btn-primary btn-lg btn-block" href="">提交体检报告</a>
+							<a class="data_buttom bansf btn btn-primary btn-lg btn-block" href="img_up_report.php?user_id=<?php echo $user_id?>&score=<?php echo $score?>">提交体检报告</a>
 						</div>
 						<div class="readeport_xuanzui">
 							<p>没有报告请选择下面选项</p>
