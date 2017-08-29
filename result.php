@@ -1,6 +1,7 @@
 <?php
 $user_id = $_GET['user_id'];
 $score = $_GET['score'];
+$gender = $_GET['gender'];
 if ($score<=15){
     $value = '低风险';
     $desc = "从医学的角度判定，在所有测试的与癌症相关生活方式的高危因素中，您仅仅有极少或相关性较低的个别项目处于高危，因此，可以初步判定您的生活方式是相对健康的，属于低风险。请保持您的健康习惯，纠正不当的个别习惯，将对您预防肿瘤、甚至癌前疾病的发生有至关重要的作用。";
@@ -30,6 +31,7 @@ if ($score<=15){
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" href="css/Font-Awesome-3.2.1/css/font-awesome.min.css"  />
 		<link rel="stylesheet" href="css/style.css" />
+        <script type="text/javascript" src="js/jquery.min.js"></script>
 		
 	</head>
 	<body>
@@ -48,10 +50,16 @@ if ($score<=15){
 			</div>
 			
 			<div class="dati_buttomsg1">
-				<a href="up_report.php?user_id=<?php echo $user_id?>&score=<?php echo $score?>" class="data_buttomcc btn btn-default">进行下一步</a>
+				<button id="btn_next" onclick="next()" href="up_report.php?user_id=<?php echo $user_id?>&score=<?php echo $score?>" class="data_buttomcc btn btn-default">进行下一步</>
+<!--				<a href="up_report.php?user_id=--><?php //echo $user_id?><!--&score=--><?php //echo $score?><!--" class="data_buttomcc btn btn-default">进行下一步</a>-->
 			</div>
 			
 		
 		</div>
 	</body>
+    <script>
+        function next() {
+            location.href='up_report.php?user_id=<?php echo $user_id?>&gender=<?php echo $gender?>&score=<?php echo $score?>';
+        }
+    </script>
 </html>

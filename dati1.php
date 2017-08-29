@@ -6,26 +6,35 @@ if($_GET['gender']==null){
 }else{
     $gender = $_GET['gender'];
 }
+//if($gender==1){
+//    $sql = "select * from questions1 where gender=-1 or gender=1 order by q_id asc";
+//}
+//else{
+//    $sql = "select * from questions1 where gender=-1 or gender=0 order by q_id asc";
+//}
+//$query = mysqli_query($link,$sql);
+//$q_arr = array();
+//while ($row = mysqli_fetch_array($query)) {
+//    //查询问题
+//   $q_arr[]=$row;
+//}
+//$sql1 = "select * from answers1";
+//$query1 = mysqli_query($link,$sql1);
+//$a_arr = array();
+//while ($row = mysqli_fetch_array($query1)) {
+//    //查询答案
+//    $a_arr[]=$row;
+//}
 if($gender==1){
-    $sql = "select * from questions where gender=1 order by q_id asc";
-}
-else{
-    $sql = "select * from questions order by q_id asc";
+    $sql = "select * from questions where questionnaire_id=3 and gender=1 order by sort asc";
+}else{
+    $sql = "select * from questions where questionnaire_id=3 order by sort asc";
 }
 $query = mysqli_query($link,$sql);
-$q_arr = array();
 while ($row = mysqli_fetch_array($query)) {
     //查询问题
-   $q_arr[]=$row;
+    $q_arr[]=$row;
 }
-$sql1 = "select * from answers";
-$query1 = mysqli_query($link,$sql1);
-$a_arr = array();
-while ($row = mysqli_fetch_array($query1)) {
-    //查询答案
-    $a_arr[]=$row;
-}
-
 $i=0;
 ?>
 <!DOCTYPE html>
@@ -53,47 +62,48 @@ $i=0;
             <p class="fr">已完成<span id="current_q">0</span>/<span><?php echo count($q_arr)?></span></p>
         </div>
         <div class="clear"></div>
-    <?php
-    foreach ($q_arr as $q_item){
-        ?>
-        <div id="q_<?php echo $q_item['q_id']?>" <?php if($i>0){?> style="display: none" <?php }?>>
-            <div class="dati_biao">
-                <p class="dati_biapp"><?php echo $i+1 ?>.
-                    <?php echo $q_item['question'] ?></p>
-            </div>
-            <div class="kt"></div>
-            <?php
-            foreach ($a_arr as $a_item){
-                if($a_item['q_id']==$q_item['q_id']){
+        <?php
+        foreach ($q_arr as $q_item){
+            ?>
+            <div id="q_<?php echo $q_item['id']?>" <?php if($i>0){?> style="display: none" <?php }?>>
+                <div class="dati_biao">
+                    <p class="dati_biapp"><?php echo $i+1 ?>.
+                        <?php echo $q_item['name'] ?></p>
+                </div>
+                <div class="kt"></div>
+                <?php
+                $a_arr = json_decode($q_item['options'], true);
+                foreach ($a_arr as $a_item){
+                    //if($a_item['q_id']==$q_item['q_id']){
                     ?>
                     <div class="dati_xuanz">
                         <label>
-                            <input type="radio" name="answer_<?php echo $a_item['q_id']?>" value="<?php  if($gender==1){echo $a_item['score'];}else{echo $a_item['female_score'];}?>" class="bianhuaz answer_<?php echo $a_item['q_id']?>"><span><?php echo $a_item['answer']?></span>
+                            <input type="radio" name="answer_<?php echo $q_item['id']?>" value="<?php  if($gender==1){echo $a_item['score'];}else{echo $a_item['female_score'];}?>" class="bianhuaz answer_<?php echo $q_item['id']?>"><span><?php echo $a_item['text']?></span>
                         </label>
                     </div>
                     <?php
+                    //}
                 }
-            }
-            ?>
-            <div class="kt1"></div>
-            <?php if($i<count($q_arr)-1){
                 ?>
-                <div class="dati_buttomsg">
-                    <button type="button" class="data_buttom11 btn btn-default" onclick="next(<?php echo $q_item['q_id']?>,<?php echo $q_arr[$i+1]['q_id'] ?>,<?php echo $i+1?>)">下一题</button>
-                </div>
-                <?php
-            }else{
-                ?>
-                <div class="dati_buttomsg">
-                    <button type="button" class="data_buttom11 btn btn-default" onclick="complete(<?php echo $q_item['q_id']?>)">提交</button>
-                </div>
-                <?php
-            }?>
-        </div>
-        <?php
-        $i++;
-    }
-    ?>
+                <div class="kt1"></div>
+                <?php if($i<count($q_arr)-1){
+                    ?>
+                    <div class="dati_buttomsg">
+                        <button type="button" class="data_buttom11 btn btn-default" onclick="next(<?php echo $q_item['id']?>,<?php echo $q_arr[$i+1]['id'] ?>,<?php echo $i+1?>)">下一题</button>
+                    </div>
+                    <?php
+                }else{
+                    ?>
+                    <div class="dati_buttomsg">
+                        <button type="button" class="data_buttom11 btn btn-default" onclick="complete(<?php echo $q_item['id']?>)">提交</button>
+                    </div>
+                    <?php
+                }?>
+            </div>
+            <?php
+            $i++;
+        }
+        ?>
 
     <input id="hd_score" type="hidden" value="0">
 
@@ -101,17 +111,17 @@ $i=0;
     <script>
         function next(this_q_id,next_q_id,index) {
             $("#current_q").html(""+index);
-            var old_score = parseFloat($("#hd_score").val());
-            var radio_name = 'answer_'+this_q_id;
-            if($("."+radio_name+":checked").val()!='' && $("."+radio_name+":checked").val()!=undefined){
-                var score = parseFloat($("."+radio_name+":checked").val());
-                $("#hd_score").val(old_score+score);
+            //var old_score = parseFloat($("#hd_score").val());
+            //var radio_name = 'answer_'+this_q_id;
+            //if($("."+radio_name+":checked").val()!='' && $("."+radio_name+":checked").val()!=undefined){
+                //var score = parseFloat($("."+radio_name+":checked").val());
+                //$("#hd_score").val(old_score+score);
                 $("#q_"+this_q_id).hide();
                 $("#q_"+next_q_id).show();
-            }
+            //}
         }
         function complete(this_q_id) {
-            location.href='result.php?user_id=<?php echo $user_id?>&score='+$("#hd_score").val();
+            location.href='complete.php?user_id=<?php echo $user_id?>&score='+$("#hd_score").val();
         }
     </script>
 	</body>

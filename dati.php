@@ -1,20 +1,24 @@
 <?php
 include_once("connect.php");
-$sql = "select * from questions order by q_id asc";
+$user_id = $_GET['user_id'];
+if($_GET['gender']==null){
+    $gender=1;
+}else{
+    $gender = $_GET['gender'];
+}
+
+if($gender==1){
+    $sql = "select * from questions where questionnaire_id=2 and gender=1 order by sort asc";
+}else{
+    $sql = "select * from questions where questionnaire_id=2 order by sort asc";
+}
 $query = mysqli_query($link,$sql);
-$q_arr = array();
 while ($row = mysqli_fetch_array($query)) {
     //查询问题
-   $q_arr[]=$row;
+    $q_arr[]=$row;
 }
-$sql1 = "select * from answers";
-$query1 = mysqli_query($link,$sql1);
-$a_arr = array();
-while ($row = mysqli_fetch_array($query1)) {
-    //查询答案
-    $a_arr[]=$row;
-}
-$user_id = $_GET['user_id'];
+
+
 
 $i=0;
 ?>
@@ -40,42 +44,53 @@ $i=0;
     <div class="wrap">
         <div class="dati_ti">
             <p class="fl">单项题</p>
-            <p class="fr">已完成<span id="current_q">0</span>/<span>50</span></p>
+            <p class="fr">已完成<span id="current_q">0</span>/<span><?php echo count($q_arr)?></span></p>
         </div>
         <div class="clear"></div>
     <?php
     foreach ($q_arr as $q_item){
         ?>
-        <div id="q_<?php echo $q_item['q_id']?>" <?php if($i>0){?> style="display: none" <?php }?>>
-            <div class="dati_biao">
-                <p class="dati_biapp"><?php echo $i+1 ?>.
-                    <?php echo $q_item['question'] ?></p>
-            </div>
-            <div class="kt"></div>
+        <div id="q_<?php echo $q_item['id']?>" <?php if($i>0){?> style="display: none" <?php }?>>
             <?php
-            foreach ($a_arr as $a_item){
-                if($a_item['q_id']==$q_item['q_id']){
+                if($q_item['description']){
                     ?>
-                    <div class="dati_xuanz">
-                        <label>
-                            <input type="radio" name="answer_<?php echo $a_item['q_id']?>" value="<?php echo $a_item['score']?>" class="bianhuaz answer_<?php echo $a_item['q_id']?>"><span><?php echo $a_item['answer']?></span>
-                        </label>
+                    <div class="dati_biao">
+                        <p class="dati_biapp">tips:
+                            <?php echo $q_item['description'] ?></p>
                     </div>
                     <?php
                 }
+            ?>
+            <div class="dati_biao">
+                <p class="dati_biapp"><?php echo $i+1 ?>.
+                    <?php echo $q_item['name'] ?></p>
+            </div>
+            <div class="kt"></div>
+            <?php
+            $a_arr = json_decode($q_item['options'], true);
+            foreach ($a_arr as $a_item){
+                //if($a_item['q_id']==$q_item['q_id']){
+                    ?>
+                    <div class="dati_xuanz">
+                        <label>
+                            <input type="radio" name="answer_<?php echo $q_item['id']?>" value="<?php  if($gender==1){echo $a_item['score'];}else{echo $a_item['female_score'];}?>" class="bianhuaz answer_<?php echo $q_item['id']?>"><span><?php echo $a_item['text']?></span>
+                        </label>
+                    </div>
+                    <?php
+                //}
             }
             ?>
             <div class="kt1"></div>
             <?php if($i<count($q_arr)-1){
                 ?>
                 <div class="dati_buttomsg">
-                    <button type="button" class="data_buttom11 btn btn-default" onclick="next(<?php echo $q_item['q_id']?>,<?php echo $q_arr[$i+1]['q_id'] ?>,<?php echo $i+1?>)">下一题</button>
+                    <button type="button" class="data_buttom11 btn btn-default" onclick="next(<?php echo $q_item['id']?>,<?php echo $q_arr[$i+1]['id'] ?>,<?php echo $i+1?>)">下一题</button>
                 </div>
                 <?php
             }else{
                 ?>
                 <div class="dati_buttomsg">
-                    <button type="button" class="data_buttom11 btn btn-default" onclick="complete(<?php echo $q_item['q_id']?>)">提交</button>
+                    <button type="button" class="data_buttom11 btn btn-default" onclick="complete(<?php echo $q_item['id']?>)">提交</button>
                 </div>
                 <?php
             }?>
@@ -101,7 +116,7 @@ $i=0;
             }
         }
         function complete(this_q_id) {
-            location.href='result.php?user_id=<?php echo $user_id?>&score='+$("#hd_score").val();
+            location.href='result.php?user_id=<?php echo $user_id?>&gender=<?php echo $gender?>&score='+$("#hd_score").val();
         }
     </script>
 	</body>

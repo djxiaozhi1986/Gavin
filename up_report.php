@@ -1,6 +1,7 @@
 <?php
 $user_id = $_GET['user_id'];
 $score = $_GET['score'];
+$gender = $_GET['gender'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -55,7 +56,7 @@ $score = $_GET['score'];
 						</div>
 						<div class="readeport_xuanzui">
 							<p>没有报告请选择下面选项</p>
-							<button type="button" class="data_buttom bansf btn btn-primary btn-lg btn-block">解析慢病秘密</button
+							<button type="button" onclick="dati1()" class="data_buttom bansf btn btn-primary btn-lg btn-block">解析慢病秘密</button
 						</div>
 					</div>
 					
@@ -67,8 +68,12 @@ $score = $_GET['score'];
 				
 			<!--<button type="button" class="data_buttom bansf btn btn-primary btn-lg btn-block">开始答题</button>-->
 			
-		</div>	
-				
-		
+		</div>
+
+        <script>
+            function dati1() {
+                location.href='dati1.php?user_id=<?php echo $user_id?>&gender=<?php echo $gender?>&score=<?php echo $score?>';
+            }
+        </script>
 	</body>
 </html>
